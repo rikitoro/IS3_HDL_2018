@@ -1,21 +1,16 @@
-# IS3 ディジタル技術
+IS3 マイクロコンピュータ基礎 HDL実習
 
-## HDL実習
-
-## 実習ボード、開発ツールの使い方
-
-力武克彰、武田正則、菅谷純一
+# 1章 実習ボード、開発ツールの使い方
 
 ---
 
 ## 実習ボードについて
 
-本実習では ALTERA社のFPGAチップCyclone Vが搭載された
+本実習では Intel社(ALTERA社)のFPGAチップCyclone Vが搭載された
 DE0-CV開発ボードを使います。
-
-スライドスイッチ(SW9-0)、プッシュスイッチ(KEY0-4)、
+このボードは、スライドスイッチ(SW9-0)、プッシュスイッチ(KEY0-4)、
 LED(LEDR9-0)、7セグメントLED(HEX5-0)、GPIOなど多くのI/Oを
-備えたボードです。
+備えています。
 
 [http://cd-de0-cv.terasic.com](http://cd-de0-cv.terasic.com)
 より、ユーザーマニュアルをダウンロードしておいてください。
@@ -24,9 +19,7 @@ LED(LEDR9-0)、7セグメントLED(HEX5-0)、GPIOなど多くのI/Oを
 
 ## 開発ツールについて
 
-本実習では回路設計を行うための
-EDA(electronic design automation)ツールとして
-Quartus Prime Lite Edition を利用します。
+本実習では回路設計を行うための EDA(electronic design automation) ツールとして Quartus Prime Lite Edition を利用します。
 
 [インテル Quartus Prime](https://www.altera.co.jp/products/design-software/fpga-design/quartus-prime/download.html)
 
@@ -34,8 +27,8 @@ Quartus Prime Lite Edition を利用します。
 
 # 実習ボード・開発ツールの使い方
 
-実習ボードのスライドスイッチSW9-0に入力された0/1のビットパターンを
-そのままLEDのLED9-0に表示する回路の設計実装を行う実習を通して、
+実習ボードのスライドスイッチSW7-0に入力された0/1のビットパターンを
+そのままLEDのLEDR7-0に表示する回路の設計実装を行う実習を通して、
 実習ボードと開発ツールの使い方を学んでいきましょう。
 
 ![DE0-CV](./assets/DE0_CV_simple_io.png)
