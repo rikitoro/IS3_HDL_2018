@@ -271,7 +271,7 @@ module adder(
   output  logic       carry
 );
 
-  assing {carry, sum} = a + b; // (1)
+  assign {carry, sum} = a + b; // (1)
 
 endmodule
 ```
