@@ -1,6 +1,6 @@
 IS3 マイクロコンピュータ基礎 HDL実習
 
-# 1章 SystemVerilog 101
+# 2章 SystemVerilog 101
 
 本章では、SystemVerilogの文法のうち、必要最低限の基本部分を説明します。
 
