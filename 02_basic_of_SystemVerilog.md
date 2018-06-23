@@ -27,7 +27,9 @@ endmodule
 ```
 
 リスト2.1に簡単な回路モジュールを示しました。
-予約語 module の後にモジュール名を指定し(リスト中(1))、続いて回路モジュールの入出力信号を宣言するポートリストを記述します。
+
+まず、モジュール名とポートリストを記述します。
+予約語 module の後にモジュール名を指定し(リスト中(1))、続いて回路モジュールの入出力信号を宣言するポートリストを示します。
 リスト2.1のポートリストでは 8-bit logic 型の入力 a と、8-bit logic 型の出力 b があることが示されています(リスト中(1)(2))。
 なお、logic型の信号は論理 0, 1と、ハイインピーダンス状態 z および不定値 x の4値を取りえます。
 
@@ -69,11 +71,11 @@ module logic_gates(
   output logic [1:0] y5
 );
 
-  assing y1 = a & b;      // (1) bitwise AND
-  assing y2 = a | b;      // bitwise OR
-  assing y3 = a ^ b;      // bitwise XOR
-  assing y4 = ~a;         // bitwise NOT
-  assing y5 = ~(a & b);   // bitwise NAND
+  assign y1 = a & b;      // (1) bitwise AND
+  assign y2 = a | b;      // bitwise OR
+  assign y3 = a ^ b;      // bitwise XOR
+  assign y4 = ~a;         // bitwise NOT
+  assign y5 = ~(a & b);   // bitwise NAND
 
 endmodule
 ```
@@ -296,10 +298,8 @@ adder モジュールの入出力信号は表2.4のように DE0-CV の入出力
 |y[3:0]| LEDR3-LEDR0        | output |
 
 
-
-
 ---
 ## always文
 
-レジスタなどの順序回路や、エンコーダ・デコーダなどの複雑な組み合わせ回路は always文を使って設計できます。
-always文を使った回路設計については、3章と4章において説明します。
+レジスタなどの順序回路や、エンコーダ・デコーダなどの複雑な組み合わせ回路は always 文(always_ff 文、always_comb 文など)を使って設計できます。
+always 文を使った回路設計については、3章と4章において説明します。
