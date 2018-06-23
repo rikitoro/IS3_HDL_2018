@@ -2,7 +2,7 @@ IS3 マイクロコンピュータ基礎 HDL実習
 
 # 3章 レジスタの設計
 
-本章では、SystemVerilogでレジスタを設計する方法を学びます。
+本章では、always_ff 文を用いてレジスタを設計する方法を学びます。
 
 ---
 ## レジスタ
@@ -60,8 +60,8 @@ register モジュールの入出力信号は表3.1のように DE0-CV の入出
 |信号名|割り当てデバイス|入出力|
 |------|----------------|------|
 |clock | KEY0           | input |
-|d[3:0]| SW3-0          | input |
-|q[3:0]| LEDR3-0       | output |
+|d[3:0]| SW3-SW0          | input |
+|q[3:0]| LEDR3-LEDR0       | output |
 
 ---
 ## 非同期リセット付きレジスタ
@@ -125,5 +125,5 @@ register_ar モジュールの入出力信号は表3.3のように DE0-CV の入
 |------|----------------|------|
 |clock | KEY0           | input |
 |n_reset| KEY1          | input |
-|d[3:0]| SW3-0          | input |
-|q[3:0]| LEDR3-0       | output |
+|d[3:0]| SW3-SW0          | input |
+|q[3:0]| LEDR3-LEDR0       | output |
