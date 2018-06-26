@@ -135,28 +135,28 @@ Error (10161): Verilog HDL error at simple_io.sv(8): ...
 作成した simple_io モジュールの入出力ポートが適切なI/Oデバイスに
 接続されるよう、ピンの割り当てを行います。
 
-今回はled[7]-led[0]がボードのLEDR9-0、sw[7]-[0]がSW9-0に接続されるように表1.1のとおりピンの設定を行います。
+今回はled[7]-led[0]がボードのLEDR7-LEDR0、sw[7]-sw[0]がSW7-sw0に接続されるように表1.1のとおりピンの設定を行います。
 
 <表1.1 simple_ioモジュールのピン割り当て>
 
-|Node Name|Location|
-|:---|:---|
-|led[0]|PIN_AA2|
-|led[1]|PIN_AA1|
-|led[2]|PIN_W2|
-|led[3]|PIN_Y3|
-|led[4]|PIN_N2|
-|led[5]|PIN_N1|
-|led[6]|PIN_U2|
-|led[7]|PIN_U1|
-|sw[0]|PIN_U13|
-|sw[1]|PIN_V13|
-|sw[2]|PIN_T13|
-|sw[3]|PIN_T12|
-|sw[4]|PIN_AA15|
-|sw[5]|PIN_AB15|
-|sw[6]|PIN_AA14|
-|sw[7]|PIN_AA13|
+|Node Name|Location|割り当てデバイス|入出力|
+|:---|:---|---|---|
+|led[0]|PIN_AA2| LEDR0 | output |
+|led[1]|PIN_AA1| LEDR1 | output |
+|led[2]|PIN_W2| LEDR2 | output |
+|led[3]|PIN_Y3| LEDR3 | output |
+|led[4]|PIN_N2| LEDR4 | output |
+|led[6]|PIN_U2| LEDR5 | output |
+|led[5]|PIN_N1| LEDR6 | output |
+|led[7]|PIN_U1| LEDR7 | output |
+|sw[0]|PIN_U13| SW0 | input |
+|sw[1]|PIN_V13| SW1 | input |
+|sw[2]|PIN_T13| SW2 | input |
+|sw[3]|PIN_T12| SW3 | input |
+|sw[4]|PIN_AA15| SW4 | input |
+|sw[5]|PIN_AB15| SW5 | input |
+|sw[6]|PIN_AA14| SW6 | input |
+|sw[7]|PIN_AA13| SW7 | input |
 
 実習ボードDE0-CVにおいて、
 各ピンがどのI/Oデバイスに接続されているかは

@@ -85,7 +85,7 @@ adder モジュールの入出力信号は表4.1のように DE0-CV の入出力
 <リスト4.2 sseg_decoder モジュール(7セグメントデコーダ)>
 
 ```SystemVerilog
-module hex_decoder(
+module sseg_decoder(
   input   logic [3:0]   num,
   output  logic [6:0]   y
 );
