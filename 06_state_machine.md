@@ -9,6 +9,16 @@ IS3 マイクロコンピュータ基礎 HDL実習
 ---
 ## 回路仕様
 
+![状態機械 my_stm](./assets/my_stm_circuit.png "状態機械 my_stm")
+
+![my_stm の状態遷移図](./assets/my_stm.png "my_stm の状態遷移図")
+
+---
+## 回路構成
+
+![my_stm の内部構成](./assets/my_stm_structure.png "my_stm の内部構造")
+
+
 ---
 ## 状態の符号化
 
