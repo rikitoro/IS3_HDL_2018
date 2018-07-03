@@ -19,9 +19,9 @@ IS3 マイクロコンピュータ基礎 HDL実習
 
 ```SystemVerilog
 module register(
-  input         clock,
-  input   [3:0] d,
-  output  [3:0] q
+  input   logic         clock,
+  input   logic   [3:0] d,
+  output  logic   [3:0] q
 );
 
   always_ff @ (posedge clock) begin // (1) clockの立ち上がりのタイミングで起動
@@ -82,10 +82,10 @@ n_reset はアクティブローとします。
 
 ```SystemVerilog
 module register_ar( // asynchronous reset
-  input         clock,
-  input         n_reset, // active low (0になったらリセット)
-  input   [3:0] d,
-  output  [3:0] q
+  input   logic       clock,
+  input   logic       n_reset, // active low (0になったらリセット)
+  input   logic [3:0] d,
+  output  logic [3:0] q
 );
 
   always_ff @ (posedge clock, negedge n_reset) begin
