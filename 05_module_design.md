@@ -81,12 +81,12 @@ sseg_adderから見て下位モジュールとなる、adder モジュールの�
 ```SystemVerilog
 module counter16 (
   input   logic       clock,
-  output  logic [3:0] count_digit  
+  output  logic [3:0] count_binary
 );
   logic [3:0] count;
   logic [3:0] next_count;
 
-  assign count_digit = count;
+  assign count_binary = count;
 
   adder add_1 (
     .a      (count),
@@ -107,7 +107,7 @@ endmodule
 |信号名|割り当てデバイス|入出力|
 |------|----------------|------|
 |clock            | KEY0        | input |
-|count_digit[3:0] | LEDR3-LEDR0 | output |
+|count_binary[3:0] | LEDR3-LEDR0 | output |
 
 ---
 ## 7セグメント表示付き加算累積器
