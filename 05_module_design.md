@@ -32,13 +32,13 @@ module sseg_adder (
   logic [3:0] sum; // (1) sseg_adderモジュールの内部信号
 
   adder adder_unit ( // (2) adder モジュールの呼び出し(インスタンス化)
-    .a      (num_a),
+    .a      (num_a), // (3) adder モジュールの入力 a に sseg_adder の入力 num_a を接続
     .b      (num_b),
     .sum    (sum),
     .carry  (carry)
   );
 
-  sseg_decoder decoder_unit ( // (3) sseg_decoderモジュールの呼び出し(インスタンス化)
+  sseg_decoder decoder_unit (
     .num  (sum),
     .y    (hex_pattern)
   );  
@@ -46,9 +46,24 @@ module sseg_adder (
 endmodule
 ```
 
-リスト
+リスト中(1)では sseg_adder モジュールの内部信号 sum を定義しています。
+sseg_adderから見て下位モジュールとなる、adder モジュールの呼び出しは、(2)において行われます。
+下位モジュールの呼び出しはインスタンス化とも呼ばれます。
+モジュールは回路の設計図を与えるもので、インスタンスはその設計図を実現する回路を実際に配備したものだとイメージするとよいでしょう。
+モジュールのインスタンス化は、モジュール名 <module_name> とインスタンス名 <instance_name> およびポートリスト <port_list> (後程説明)を指定して下記のように記述します。
+```
+<module_name> <instance_name>(<port_list>);
+```
+リスト中(2)においては、adder モジュールのインスタンス名 adder_unit のインスタンス
+を生成しています。
+
+ポートリスト <port_list> では、下位モジュールの入出力信号と上位モジュール(ここではsseg_adder)の信号との接続を記述します。
+例えばリスト中(3)では下位モジュール adder モジュールの入力信号 a に、上位モジュールである sseg_adder モジュールの信号 num_a を接続することを示しています。
 
 ## 演習
+
+リスト5.1 sseg_adder モジュールを実習ボード DE0-CV に実装してその動作を確認しましょう。
+リスト4.1 adder モジュールとリスト4.2 sseg_decoder モジュールも必要となりますので、プロジェクトにそれらのデザインファイルも追加しましょう。
 
 |信号名|割り当てデバイス|入出力|
 |------|----------------|------|
@@ -56,8 +71,6 @@ endmodule
 |num_b[3:0]       | SW3-SW0     | input |
 |hex_pattern[6:0] | HEX06-HEX00 | output |
 |carry            | LEDR0       | output |
-
-
 
 ---
 ## 16進カウンタ
