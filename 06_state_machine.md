@@ -49,7 +49,7 @@ module register ( // 非同期リセット付き2ビットレジスタ
   output  logic [1:0] q
 );
 
-  always @ (posedge clock, negedge n_reset) begin
+  always_ff @ (posedge clock, negedge n_reset) begin
     if (n_reset == 1'b0) begin
       q <= 2'b00;  // SA にリセット
     end else begin
