@@ -44,7 +44,7 @@ IS3 マイクロコンピュータ基礎 HDL実習
 ```SystemVerilog
 module register ( // 非同期リセット付き2ビットレジスタ
   input   logic       clock,
-  input   logic       n_reset,
+  input   logic       n_reset, // active low async reset
   input   logic [1:0] d,
   output  logic [1:0] q
 );
@@ -203,3 +203,19 @@ module my_stm (
 
 endmodule //
 ```
+
+## 演習
+
+リスト6.4 my_stm モジュールを実習ボード DE0-CV に実装してその動作を確認しましょう。
+my_stm モジュールの入出力信号は表5.6のように DE0-CV の入出力デバイスに割り当ててください。
+
+なお、リスト6.1 register モジュール、リスト6.2 next_state_generator モジュール、およびリスト6.3 output_decoder モジュールも必要となりますので、プロジェクトにそれらのデザインファイルも追加しましょう。
+
+<表6.6 my_stm モジュールの入出力のデバイスへの割り当て>
+
+|信号名|割り当てデバイス|入出力|
+|------|----------------|------|
+|clock            | KEY0        | input |
+|n_reset          | KEY1        | input |
+|p                | SW0         | input |
+|y[1:0]           | LEDR1-LEDR0 | output |
