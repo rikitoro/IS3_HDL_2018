@@ -9,18 +9,37 @@ IS3 マイクロコンピュータ基礎 HDL実習
 ---
 ## 回路仕様
 
+
+
 ![状態機械 my_stm](./assets/my_stm_circuit.png "状態機械 my_stm")
 
+<図6.1 状態機械 my_stm>
+
+
 ![my_stm の状態遷移図](./assets/my_stm.png "my_stm の状態遷移図")
+
+<図6.2 my_stm の状態遷移図>
 
 ---
 ## 回路構成
 
 ![my_stm の内部構成](./assets/my_stm_structure.png "my_stm の内部構造")
 
+<図6.3 my_stm の内部構成>
 
 ---
 ## 状態の符号化
+
+<表6.1 状態の符号化>
+
+| 状態 | 符号 state[1:0] |
+|------|-----------------|
+| SA | 00 |
+| SB | 01 |
+| SC | 10 |
+| SD | 11 |
+
+<リスト6.1 register モジュール(非同期リセット付き2ビットレジスタ)>
 
 ```SystemVerilog
 module register ( // 非同期リセット付き2ビットレジスタ
@@ -44,6 +63,36 @@ endmodule
 ---
 
 ## 次状態関数回路
+
+<表6.2 my_stm の状態遷移表>
+
+| p | 今の状態S(N) | 次の状態S(N+1) |
+|---|--------------|----------------|
+| 0 | SA | SB |
+| 0 | SB | SC |
+| 0 | SC | SD |
+| 0 | SD | SA |
+| 1 | SA | SA |
+| 1 | SB | SB |
+| 1 | SC | SC |
+| 1 | SD | SD |
+
+
+<表6.3 次状態生成回路 next_state_generatorの真理値表>
+
+| 入力 p | 入力 state[1:0] | 出力 next_state[1:0] |
+|---|--------------|----------------|
+| 0 | 00 | 01 |
+| 0 | 01 | 10 |
+| 0 | 10 | 11 |
+| 0 | 11 | 00 |
+| 1 | 00 | 00 |
+| 1 | 01 | 01 |
+| 1 | 10 | 10 |
+| 1 | 11 | 11 |
+
+
+<リスト6.2 next_state_generator モジュール(次状態生成回路)>
 
 ```SystemVerilog
 module next_state_generator (
@@ -73,6 +122,28 @@ endmodule //
 
 ## 出力関数
 
+<表6.4 状態と出力の対応表>
+
+| 今の状態S(N) | 出力 y[1:0] |
+|--------------|-------------|
+| SA | 00 |
+| SB | 01 |
+| SC | 00 |
+| SD | 10 |
+
+
+<表6.5 出力関数回路 output_decoder の真理値表>
+
+| 入力 state[1:0] | 出力 y[1:0] |
+|-----------------|-------------|
+| 00 | 00 |
+| 01 | 01 |
+| 10 | 00 |
+| 11 | 10 |
+
+
+<リスト6.3 output_decoder モジュール(出力関数回路)>
+
 ```SystemVerilog
 module output_decoder (
   input   logic [1:0] state,
@@ -95,6 +166,8 @@ endmodule //
 ---
 
 ## 状態機械の組み上げ
+
+<リスト6.4 my_stm モジュール>
 
 ```SystemVerilog
 module my_stm (
