@@ -186,7 +186,7 @@ module mux(
   input   logic       sel,
   input   logic [3:0] d0,
   input   logic [3:0] d1,
-  output  logic [3:0] y;
+  output  logic [3:0] y
 );
 
   assign y = (sel == 1'd1) ? d1 : d0; // (1)
