@@ -182,9 +182,9 @@ module output_decoder (
   always_comb begin
     case (state)
       2'b00   :  y = 2'b00;
-      2'b01   :  y = 2'b10;
+      2'b01   :  y = 2'b01;
       2'b10   :  y = 2'b00;
-      2'b11   :  y = 2'b01;
+      2'b11   :  y = 2'b10;
       default :  y = 2'b00;
     endcase
   end
