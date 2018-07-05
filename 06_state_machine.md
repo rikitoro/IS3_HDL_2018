@@ -185,7 +185,7 @@ module output_decoder (
       2'b01   :  y = 2'b10;
       2'b10   :  y = 2'b00;
       2'b11   :  y = 2'b01;
-      default :  
+      default :  y = 2'b00;
     endcase
   end
 
