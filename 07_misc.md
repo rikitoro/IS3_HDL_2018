@@ -63,3 +63,54 @@ module top (
 
 endmodule // Top
 ````
+
+---
+
+## enum
+
+```SystemVerilog
+module my_stm (
+  input   logic       clock,
+  input   logic       n_reset,
+  input   logic       p,
+  output  logic [1:0] y
+);
+
+  // State
+  typedef enum logic[1:0] {SA, SB, SC, SD} State;
+
+  State state;
+
+  // next_state_generator + register(with async reset)
+  always_ff @ (posedge clock, negedge n_reset) begin
+    if (n_reset == 1'b0) begin  // active low async reset
+      state <= SA;
+    end else begin
+      case ({p, state}) //  state transition
+        {1'b0, SA}: state <= SB;
+        {1'b0, SB}: state <= SC;
+        {1'b0, SC}: state <= SD;
+        {1'b0, SD}: state <= SA;
+        {1'b1, SA}: state <= SA;
+        {1'b1, SB}: state <= SB;
+        {1'b1, SC}: state <= SC;
+        {1'b1, SD}: state <= SD;
+        default:    state <= SA;
+      endcase
+    end
+  end
+
+  // output_decoder
+  always_comb begin
+    case (state)
+      SA:       y = 2'b00;
+      SB:       y = 2'b01;
+      SC:       y = 2'b00;
+      SD:       y = 2'b10;
+      default:  y = 2'b00;
+    endcase
+  end
+
+endmodule
+
+```
