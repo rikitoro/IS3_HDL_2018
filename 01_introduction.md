@@ -146,8 +146,8 @@ Error (10161): Verilog HDL error at simple_io.sv(8): ...
 |led[2]|PIN_W2| LEDR2 | output |
 |led[3]|PIN_Y3| LEDR3 | output |
 |led[4]|PIN_N2| LEDR4 | output |
-|led[6]|PIN_U2| LEDR5 | output |
-|led[5]|PIN_N1| LEDR6 | output |
+|led[5]|PIN_N1| LEDR5 | output |
+|led[6]|PIN_U2| LEDR6 | output |
 |led[7]|PIN_U1| LEDR7 | output |
 |sw[0]|PIN_U13| SW0 | input |
 |sw[1]|PIN_V13| SW1 | input |
