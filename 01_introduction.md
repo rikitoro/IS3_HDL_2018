@@ -95,7 +95,7 @@ Quartus Prime Lite Editionを起動します。
 なお、モジュール名(module の後についている名前)は
 top-level entityと同じにする必要があります。
 
-<リスト1.1 siple_io.sv>
+<リスト1.1 simple_io.sv>
 
 ````systemverilog
 module simple_io(
