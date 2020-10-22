@@ -45,7 +45,7 @@ Quartus Prime Lite Editionを起動します。
 - top-level entity (PIN接続される一番外側の回路モジュール名)
 
 設定例:
-- working directory: Z:/digital/working_directory
+- working directory: Z:/digital/working_directory/simple_io
 - project: simple_io
 - top-level entity: simple_io
 
