@@ -12,10 +12,10 @@ module count10 (
 );
 
   always_ff @ (posedge clock) begin
-    if (count > 4'd10) begin
+    if (count >= 4'd9) begin
       count <= 4'd0;
     end else begin
-      count <= count + 1'b1;
+      count <= count + 1'd1;
     end
   end
 
