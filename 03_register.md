@@ -170,7 +170,7 @@ endmodule
 その後、クロック信号 clk の立ち上がりが入るたびに count の値が1ずつ増えていきますが、
 countの値が4の場合は次のクロックの立ち上がりで、countの値が0に戻されているのが分かります。 
 
-![counter10 モジュールの動作例](./assets/timechart_counter5.png)
+![counter5 モジュールの動作例](./assets/timechart_counter5.png)
 
 <図3.6 counter10 モジュールの動作例>
 
