@@ -127,3 +127,48 @@ register_ar モジュールの入出力信号は表3.3のように DE0-CV の入
 |n_reset| KEY1          | input |
 |d[3:0]| SW3-SW0          | input |
 |q[3:0]| LEDR3-LEDR0       | output |
+
+
+---
+## 5進カウンタ(非同期リセット付き)
+
+先ほどの非同期リセット付きレジスタの設計を応用して、
+非同期リセットが付いた5進カウンタ(図3.5)を設計してみましょう。
+
+この5進カウンタはリスト3.3の counter5 モジュールのように作成できます。
+
+![5進カウンタ(非同期リセット付き)](./assets/counter5.png "5進カウンタ(非同期リセット付き)")
+
+<図3.5 5進カウンタ(非同期リセット付き)>
+
+
+<リスト3.3 counter5 モジュール(5進カウンタ(非同期リセット付き))>
+
+```SystemVerilog
+module counter5 (
+  input   logic       clk,
+  input   logic       n_reset,
+  output  logic [2:0] count
+);
+  always_ff @ (posedge clk, negedge n_reset) begin
+    if (n_reset == 1'b0) begin
+      count <= 3'd0;
+    end else if (count >= 3'd4) begin
+      count <= 3'd0;
+    end else begin
+      count <= count + 1'd1;
+    end
+  end
+
+endmodule // counter10
+
+endmodule
+```
+
+動作例を図3.6に示します。
+クロック信号 clk の立ち上がりが入るたびに count の値が1ずつ増えていきますが、
+countの値が4の場合は次のクロックの立ち上がりで、countの値が0に戻されているのが分かります。 
+
+![counter10 モジュールの動作例](./assets/timechart_counter5.png)
+
+<図3.6 counter10 モジュールの動作例>
