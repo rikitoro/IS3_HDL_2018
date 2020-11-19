@@ -170,7 +170,7 @@ countの値が4の場合は次のクロックの立ち上がりで、countの値
 
 ![counter5 モジュールの動作例](./assets/timechart_counter5.png)
 
-<図3.6 counter10 モジュールの動作例>
+<図3.6 counter5 モジュールの動作例>
 
 ### 演習
 
