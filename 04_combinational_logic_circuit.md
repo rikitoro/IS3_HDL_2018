@@ -46,7 +46,7 @@ adder モジュールの入出力信号は表4.1のように DE0-CV の入出力
 |a[3:0]| SW7-SW4          | input |
 |b[3:0]| SW3-SW0          | input |
 |carry | LEDR9          | output |
-|y[3:0]| LEDR3-LEDR0        | output |
+|sum[3:0]| LEDR3-LEDR0        | output |
 
 
 ---
