@@ -160,8 +160,6 @@ module counter5 (
     end
   end
 
-endmodule // counter10
-
 endmodule
 ```
 
