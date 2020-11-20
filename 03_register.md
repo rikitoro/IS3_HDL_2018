@@ -166,11 +166,65 @@ endmodule
 動作例を図3.6に示します。
 まず、n_reset の立下りでcountの値が 0 にリセットされます。
 その後、クロック信号 clk の立ち上がりが入るたびに count の値が1ずつ増えていきますが、
-countの値が4の場合は次のクロックの立ち上がりで、countの値が0に戻されているのが分かります。 
+countの値が4の場合は次のクロックの立ち上がりでcountの値が0に戻されます。
 
 ![counter5 モジュールの動作例](./assets/timechart_counter5.png)
 
 <図3.6 counter5 モジュールの動作例>
+
+
+
+上記の5進カウンタはクロックのカウント数をそのまま出力していました。
+この5進カウンタの設計を少し変更し、
+クロックのカウント数が 0 となる時にパルスを発生するような分周回路(図3.7)を設計します。
+リスト3.4の devider5 モジュールに設計例を示します。
+
+![5分周回路](./assets/devider5.png "5分周回路")
+
+<図3.7 5分周回路>
+
+
+<リスト3.4 devide5 モジュール(5分周回路)>
+
+```SystemVerilog
+module devider5 (
+  input   logic       clk,
+  input   logic       n_reset,
+  output  logic       y
+);
+
+  logic [2:0] count; // (1) カウント用の内部変数
+  
+  assign y = (count == 3'd0) ? 1'b1 : 1'b0; // (2)
+  
+  always_ff @ (posedge clk, negedge n_reset) begin
+    if (n_reset == 1'b0) begin
+      count <= 3'd0;
+    end else if (count >= 3'd4) begin
+      count <= 3'd0;
+    end else begin
+      count <= count + 1'd1;
+    end
+  end
+
+endmodule
+```
+
+クロック clk の立ち上がりのカウント値を保持しておくための変数として、
+(1)においてモジュール内に3ビットの内部変数 count を用意しています。
+このカウント値 count は、先ほどの5進カウンタと同様に、
+always_ff 文において n_reset の立下りや clk の立ち上がりのタイミングで
+その値が更新されます。
+
+出力 y は、(2)での assign 文において、
+カウント値 count が 0 となった時のみ1を出力するよう3項演算子を使って設定されています。
+
+動作例を図3.8に示します。
+
+![devider5 モジュールの動作例](./assets/timechart_devider5.png)
+
+<図3.8 devider5 モジュールの動作例>
+
 
 ### 演習
 
