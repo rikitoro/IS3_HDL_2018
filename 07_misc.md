@@ -114,3 +114,44 @@ module my_stm (
 endmodule
 
 ```
+
+---
+
+## ノンブロッキング代入とブロッキング代入のちがい
+
+### ノンブロッキング代入
+
+````SystemVerilog
+module nonblocking( // shift register
+  input   logic clk,
+  input   logic d,
+  output  logic q0,
+  output  logic q1
+);
+
+  always_ff @ (posedge clk) begin
+    q0 <= d;
+    q1 <= d;
+  end
+  
+endmodule
+````
+
+### ブロッキング代入
+
+````SystemVerilog
+module nonblocking( // shift register
+  input   logic clk,
+  input   logic d,
+  output  logic q0,
+  output  logic q1
+);
+
+  always_ff @ (posedge clk) begin
+    q0 = d;
+    q1 = d;
+  end
+  
+endmodule
+````
+
