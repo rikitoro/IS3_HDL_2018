@@ -158,3 +158,5 @@ module nonblocking( // shift register
 endmodule
 ````
 
+![timechart](./assets/timechart_blocking.png)
+
