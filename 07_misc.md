@@ -131,7 +131,7 @@ module nonblocking( // shift register
 
   always_ff @ (posedge clk) begin
     q0 <= d;
-    q1 <= d;
+    q1 <= q0;
   end
   
 endmodule
@@ -154,7 +154,7 @@ module nonblocking( // shift register
 
   always_ff @ (posedge clk) begin
     q0 = d;
-    q1 = d;
+    q1 = q0;
   end
   
 endmodule
