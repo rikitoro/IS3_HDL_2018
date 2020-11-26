@@ -137,6 +137,9 @@ module nonblocking( // shift register
 endmodule
 ````
 
+![timechart](./asset/timechart_nonblocking.png)
+
+
 ### ブロッキング代入
 
 ````SystemVerilog
