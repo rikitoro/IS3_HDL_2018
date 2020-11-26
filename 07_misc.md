@@ -139,6 +139,8 @@ endmodule
 
 ![timechart](./assets/timechart_nonblocking.png)
 
+![shift register](./assets/nonblocking.png)
+
 
 ### ブロッキング代入
 
@@ -159,4 +161,7 @@ endmodule
 ````
 
 ![timechart](./assets/timechart_blocking.png)
+
+![register](./assets/blocking.png)
+
 
