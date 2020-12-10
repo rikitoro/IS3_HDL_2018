@@ -137,7 +137,7 @@ module nonblocking( // shift register
 endmodule
 ````
 
-![timechart](./assets/timechart_nonblocking.png)
+![timechart](./assets/timechart_nonblocking.png) 
 
 ![shift register](./assets/nonblocking.png)
 
