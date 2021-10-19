@@ -200,7 +200,7 @@ counter5 モジュールの入出力信号は表3.3のように DE0-CV の入出
 <図3.7 5分周回路>
 
 
-<リスト3.4 devide5 モジュール(5分周回路)>
+<リスト3.4 devider5 モジュール(5分周回路)>
 
 ```SystemVerilog
 module devider5 (
@@ -240,4 +240,18 @@ always_ff 文において n_reset の立下りや clk の立ち上がりのタ�
 ![devider5 モジュールの動作例](./assets/timechart_devider5.png)
 
 <図3.8 devider5 モジュールの動作例>
+
+### 演習
+
+リスト3. devider5 モジュールを実習ボード DE0-CV に実装してその動作を確認しましょう。
+
+devider5 モジュールの入出力信号は表3.4のように DE0-CV の入出力デバイスに割り当てましょう。
+
+<表3.4 devider5 モジュールの入出力のデバイスへの割り当て>
+
+|信号名 |割り当てデバイス |入出力|
+|-------|----------------|------|
+|clock  | KEY0           | input |
+|n_reset| KEY1           | input |
+|y      | LEDR0          | output |
 
