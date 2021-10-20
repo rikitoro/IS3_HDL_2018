@@ -308,6 +308,25 @@ adder モジュールの入出力信号は表2.4のように DE0-CV の入出力
 
 
 ---
+## モジュール内部の信号
+
+````systemverilog
+module notAandB (
+	input logic a,
+	input logic b,
+	output logic y
+);
+	// モジュール内部の信号 notA 
+	logic notA;
+
+	assign notA = ~a;
+	assign y = notA & b;
+
+endmodule
+````
+
+
+---
 ## always文
 
 レジスタなどの順序回路や、エンコーダ・デコーダなどの複雑な組み合わせ回路は always 文(always_ff 文、always_comb 文など)を使って設計できます。
