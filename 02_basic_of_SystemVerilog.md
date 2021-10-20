@@ -324,15 +324,15 @@ adder モジュールの入出力信号は表2.4のように DE0-CV の入出力
 
 ````systemverilog
 module notAandB (
-	input logic a,
-	input logic b,
-	output logic y
+  input logic a,
+  input logic b,
+  output logic y
 );
-	// (1) モジュール内部の信号 notA を宣言
-	logic notA;
+  // (1) モジュール内部の信号 notA を宣言
+  logic notA;
 
-	assign notA = ~a;
-	assign y = notA & b;
+  assign notA = ~a;
+  assign y = notA & b;
 
 endmodule
 ````
