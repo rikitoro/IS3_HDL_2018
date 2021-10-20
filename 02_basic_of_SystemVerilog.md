@@ -311,18 +311,24 @@ adder モジュールの入出力信号は表2.4のように DE0-CV の入出力
 ---
 ## モジュール内部の信号
 
-![notAandBモジュール](./assets/mux.png "モジュール内部に信号線 notA を持つ notAandB モジュール")
+図2.3の notAandBモジュールには入力信号 a, b と出力信号 y がありますが、
+加えてモジュール内部に入力 a の not をとった信号を保持する信号線 notA が存在しています。
+この様なモジュール内部で必要な信号線は、
+リスト2.11の(1)のようにモジュール内で宣言して使用することができます。
+
+![notAandB モジュール](./assets/notAandB.png "モジュール内部に信号線 notA を持つ notAandB モジュール")
 
 <図2.3 モジュール内部に信号線 notA を持つ notAandB モジュール>
 
 <リスト2.11 notAandB モジュール>
+
 ````systemverilog
 module notAandB (
 	input logic a,
 	input logic b,
 	output logic y
 );
-	// モジュール内部の信号 notA 
+	// (1) モジュール内部の信号 notA を宣言
 	logic notA;
 
 	assign notA = ~a;
@@ -331,6 +337,19 @@ module notAandB (
 endmodule
 ````
 
+### 演習
+
+リスト2.11の notAandB モジュールを実習ボード DE0-CV に実装してその動作を確認しましょう。
+
+notAandB モジュールの入出力信号は表2.5のように DE0-CV の入出力デバイスに割り当てましょう。
+
+<表2.4 adder モジュールの入出力のデバイスへの割り当て>
+
+|信号名|割り当てデバイス|入出力|
+|------|----------------|------|
+|a     | SW1          | input |
+|b     | SW0-SW0          | input |
+|y     | LEDR0          | output |
 
 ---
 ## always文
