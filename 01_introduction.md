@@ -95,7 +95,7 @@ Quartus Prime Lite Editionを起動します。
 なお、モジュール名(module の後についている名前)は
 top-level entityと同じにする必要があります。
 
-<リスト1.1 simple_io.sv>
+[リスト1.1 simple_io.sv]
 
 ````systemverilog
 module simple_io(
@@ -218,7 +218,7 @@ LEDR7-0がどの様に点灯するかを確認しましょう。
 
 この回路がどのような動作をするか、スライドスイッチsw7-0をいろいろと切り替え観察しましょう。
 
-<リスト1.2 bitwise_and.sv>
+[リスト1.2 bitwise_and.sv]
 
 ````systemverilog
 module bitwise_and(
@@ -232,7 +232,7 @@ module bitwise_and(
 endmodule
 ````
 
-<表1.2 bitwise_and のピンの割り当て>
+[表1.2 bitwise_and のピンの割り当て]
 
 |Node Name|Location|
 |:---|:---|
