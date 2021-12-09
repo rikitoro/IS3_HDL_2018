@@ -137,7 +137,7 @@ Error (10161): Verilog HDL error at simple_io.sv(8): ...
 
 今回はled[7]-led[0]がボードのLEDR7-LEDR0、sw[7]-sw[0]がSW7-sw0に接続されるように表1.1のとおりピンの設定を行います。
 
-<表1.1 : simple_ioモジュールのピン割り当て>
+[表1.1 : simple_ioモジュールのピン割り当て]
 
 |Node Name|Location|割り当てデバイス|入出力|
 |:---|:---|---|---|
