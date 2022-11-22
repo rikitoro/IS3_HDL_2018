@@ -130,12 +130,16 @@ module nonblocking( // shift register
 );
 
   always_ff @ (posedge clk) begin
-    q0 <= d;
-    q1 <= q0;
+    q0 <= d;   // (1)
+    q1 <= q0;  // (2)
   end
   
 endmodule
 ````
+
+ノンブロッキング代入を用いた場合、(1)と(2)の代入が並列で実行されます。
+したがって、クロック clk の立ち上がりのタイミングで、
+q0 には d の値、q1 には直前の q0 の値が代入されます。
 
 ![timechart](./assets/timechart_nonblocking.png) 
 
@@ -153,13 +157,15 @@ module nonblocking( // shift register
 );
 
   always_ff @ (posedge clk) begin
-    q0 = d;
-    q1 = q0;
+    q0 = d;   // (1)
+    q1 = q0;  // (2)
   end
   
 endmodule
 ````
 
+ブロッキング代入では、上から順に(1)を評価し次に(2)を評価され、その結果、q1 = q0 = d となります。
+したがって、クロック clk の立ち上がりのタイミングで、q0, q1 ともに d の値が代入されます。
 ![timechart](./assets/timechart_blocking.png)
 
 ![register](./assets/blocking.png)
