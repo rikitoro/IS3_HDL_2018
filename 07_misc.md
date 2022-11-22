@@ -166,6 +166,7 @@ endmodule
 
 ブロッキング代入では、上から順に(1)を評価し次に(2)を評価され、その結果、q1 = q0 = d となります。
 したがって、クロック clk の立ち上がりのタイミングで、q0, q1 ともに d の値が代入されます。
+
 ![timechart](./assets/timechart_blocking.png)
 
 ![register](./assets/blocking.png)
